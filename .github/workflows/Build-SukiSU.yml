@@ -98,7 +98,7 @@ jobs:
         run: |
           mkdir kernel_workspace && cd kernel_workspace
           repo init -u https://github.com/schqiushui/kernel_manifest.git -b refs/heads/oneplus/${{ inputs.SoC }} -m ${{ inputs.FEIL }}.xml --depth=1 || { echo "repo init 失败"; exit 1; }
-          repo sync || { echo "repo sync 失败"; exit 1; }
+          repo sync -c -j$(nproc --all) --no-tags || { echo "repo sync 失败"; exit 1; }
           rm kernel_platform/common/android/abi_gki_protected_exports_* || echo "No protected exports!"
           rm kernel_platform/msm-kernel/android/abi_gki_protected_exports_* || echo "No protected exports!"
           sed -i 's/ -dirty//g' kernel_platform/common/scripts/setlocalversion
