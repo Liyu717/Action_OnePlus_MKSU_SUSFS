@@ -129,7 +129,7 @@ jobs:
           # Copy SUSFS patches
           cp ../../susfs4ksu/kernel_patches/50_add_susfs_in_gki-${{ env.ANDROID_VERSION }}-${{ env.KERNEL_VERSION }}.patch ./
           cp ../../susfs4ksu/kernel_patches/fs/* ./fs/
-          cp ../susfs4ksu/kernel_patches/include/linux/* ./include/linux/
+          cp ../../susfs4ksu/kernel_patches/include/linux/* ./include/linux/
 
           echo "正在给内核打 susfs 补丁..."
           if [[ "${{ env.KERNEL_VERSION }}" == "6.6" ]]; then
