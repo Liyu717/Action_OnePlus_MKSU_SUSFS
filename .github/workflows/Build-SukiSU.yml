@@ -171,8 +171,8 @@ jobs:
           cat <<EOF >> "$DEFCONFIG"
           CONFIG_KSU=y
           CONFIG_KPM=y
-          CONFIG_KSU_SUSFS_SUS_SU=${{ inputs.VFS_PATCH = 'enable' && 'n' || 'y' }}
-          CONFIG_KSU_MANUAL_HOOK=${{ inputs.VFS_PATCH = 'enable' && 'y' || 'n' }}
+          CONFIG_KSU_SUSFS_SUS_SU=${{ inputs.VFS_PATCH == 'enable' && 'n' || 'y' }}
+          CONFIG_KSU_MANUAL_HOOK=${{ inputs.VFS_PATCH == 'enable' && 'y' || 'n' }}
           CONFIG_KSU_SUSFS=y
           CONFIG_KSU_SUSFS_HAS_MAGIC_MOUNT=y
           CONFIG_KSU_SUSFS_SUS_PATH=y
